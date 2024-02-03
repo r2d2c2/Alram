@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>알람 설정</title>
+</head>
+<body>
+    <h1>알람 설정하기</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <form action="/set_alarm" method="post">
+        <label for="time">알람 시간 설정 (HH:MM):</label>
+        <input type="time" id="time" name="time" required>
+        <input type="submit" value="알람 설정">
+    </form>
+</body>
+</html>
